@@ -2,7 +2,7 @@
   <div id="score"></div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { onMounted } from "vue";
 import { useStore } from "@/stores/score";
 import { storeToRefs } from "pinia";
