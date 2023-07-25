@@ -5,23 +5,22 @@
 <script setup lang="ts">
 import { onMounted } from "vue";
 import { useStore } from "@/stores/score";
-import { storeToRefs } from "pinia";
 import Vex from "vexflow";
+import { Midi } from "@tonejs/midi";
 
 const store = useStore();
-let { toneJson } = storeToRefs(store);
-let vf = null;
+let vf: any = null;
 
 onMounted(() => {
   vf = new Vex.Flow.Factory({
     renderer: { elementId: "score", width: 800, height: 800 },
   });
-  store.$subscribe((state) => {
+  store.$subscribe((state: any) => {
     onScoreUpdate(state.payload.toneJson);
   });
 });
 
-function onScoreUpdate(toneJson) {
+function onScoreUpdate(toneJson: Midi) {
   let score = vf.EasyScore();
   toneJson.tracks.forEach((track, trackIdx) => {
     let system = vf.System();
