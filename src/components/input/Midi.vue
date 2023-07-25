@@ -20,9 +20,9 @@
 import { Midi } from "@tonejs/midi";
 import * as Tone from "tone";
 import { useStore } from "@/stores/score";
+import { toRaw } from "vue";
 
 const store = useStore();
-let { toneJson } = store;
 let synths: Tone.PolySynth<Tone.Synth>[] = [];
 
 function onMidiUpload(event: any) {
@@ -38,6 +38,7 @@ function onMidiUpload(event: any) {
 }
 
 function onPlayClick() {
+  const toneJson = toRaw(store.toneJson);
   toneJson.tracks.forEach((track) => {
     const now = Tone.now() + 0.5;
     const synth = new Tone.PolySynth(Tone.Synth, {
@@ -54,7 +55,7 @@ function onPlayClick() {
         note.name,
         note.duration,
         note.time + now,
-        note.velocity
+        note.velocity - 0
       );
     });
   });
