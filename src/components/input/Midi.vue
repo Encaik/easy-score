@@ -1,6 +1,6 @@
 <template>
-  <div class="flex flex-col m-5">
-    <div>
+  <div class="flex flex-col m-5 mt-14">
+    <div class="rounded-lg border-dashed border-2 p-5 mx-auto">
       <p class="font-sans text-xl font-medium text-slate-900">上传MIDI文件</p>
       <input
         type="file"
@@ -9,7 +9,7 @@
         @change="onMidiUpload"
       />
     </div>
-    <div class="mt-2">
+    <div class="mt-2 mx-auto">
       <button class="btn btn-primary" @click="onPlayClick">播放</button>
       <button class="btn btn-primary ml-2" @click="onStopClick">停止</button>
     </div>

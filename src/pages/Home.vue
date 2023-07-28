@@ -4,7 +4,7 @@
       <Midi></Midi>
     </div>
     <div class="divider lg:divider-horizontal"></div>
-    <div class="flex-1">
+    <div class="w-fit">
       <Vexflow></Vexflow>
     </div>
   </div>
